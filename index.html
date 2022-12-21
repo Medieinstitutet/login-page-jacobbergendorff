@@ -7,33 +7,28 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
-    <div id="Logo">
-    <h1>Global Internet Solutions</h1>
-    </div>
     <header id="header">
-    <!---Logout button that appears after login is complete
-    <div id="logout-button"></div>
-     -->
-    <!---Info1 popup button that appears after login is complete
-    <div id="info1-button"></div>
-    -->
-    <!---Info2 popup button that appears after login is complete
-    <div id="info2-button"></div>
-    -->
-    <!---Main content that appears after login is complete
-    <div id="main-content"></div>
-    -->
+        <div id="logo"><h1>Global Internet Solutions</h1></div>
+        <div id="logout-button">Logout</div>
     </header>
-    <div id="login-container">
-        <div id="welcome-heading">Welcome, Please Sign in Below</div>
-        <label id="username-label">Username</label>
-        <input id="username" type="text" placeholder="e.g. username123">
-        <label id="password-label">Password</label>
-        <input id="password" type="password" placeholder="••••••••••••••••">
-        <input id="create-button" type="button" value="Not a User? Create an Account">
-        <input id="login-button" type="button" value="Login">    
+    <div id="content">
+        <h2 id="content-heading">Welcome to Global Internet Solutions</h2>
+        <p id="content-text">Welcome to Global Internet Solutions. We are the premier digital consultancy focused on bringing together people and technology 
+        to create a better world. Since our founding in 2022, we have relentlessly focused on building transformative products utilizing proprietary
+        technologies such as HTML, CSS, and JavaScript to transform society at scale. Feel free to browse our website to learn more about our company
+        </p>
     </div>
+    <div id="login-container">
+        <div id="welcome-heading">Welcome, Please Log In</div>
+        <label id="username-label">Username</label>
+        <input id="username-enter" type="text" placeholder="e.g. username123">
+        <label id="password-label">Password</label>
+        <input id="password-enter" type="password" placeholder="••••••••••••••••">
+        <button id="login-button" type="submit">Login</button>    
+    </div>
+
     <footer id="footer">
+        <div id="footer-text">Global Internet Solutions copyright 2022</div>
     </footer>
     <script src="javascript/script.js"></script>
 </body>
