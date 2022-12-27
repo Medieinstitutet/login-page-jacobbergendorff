@@ -17,8 +17,15 @@ const userList = [
     {id: 3, username: 'janne2', password: 'test2'},
     {id: 4, username: 'janne3', password: 'test3'},
     {id: 5, username: 'janne4', password: 'test4'},
-    {id: 6, username: 'janne5', password: 'test5'}
+    {id: 6, username: 'janne5', password: 'test5'},
 ];
+
+// Specifications for localStorage - controls if the user is logged in
+const localStorageUsername = localStorage.getItem("Username");
+const localStoragePassword = localStorage.getIten("Password");
+
+
+
 
 // Login function 
 
@@ -29,35 +36,39 @@ function validateLogin() {
     const password = passwordEnter.value;
 
     for (const user of userList) {
+
         if (user.username === username && user.password === password) {
             localStorage.setItem("Username", username);
             localStorage.setItem("Password", password);
 
-            alert("Login Successful!");
+            console.log(`Username: ${username}, Password: ${password}`);
 
             login();
-            break;
+
+            alert("Login Successful!");
+
+            return;
         } 
     }
-    alert("Login Failed!")
+    alert("Login Failed!");
 };
 
 function login() {
-    loginContainer.style.display = "block";
-    content.style.display = "none";
-    logoutButton.style.display = "none";
+    loginContainer.style.display = "none";
+    contentHeading.insertAdjacentHTML("beforeend", " " + usernameEnter.value + "!");
+    logoutButton.style.display = "block";
+    content.style.display = "block";
 };
 
 logoutButton.addEventListener("click", executeLogout);
 
 function executeLogout() {
 
-    localStorage.clearItem("Username", usernameEnter.value);
-    localStorage.clearItem("Password", passwordEnter.value);
+    localStorage.removeItem("Username", usernameEnter.value);
+    localStorage.removeItem("Password", passwordEnter.value);
 
-    loginContainer.style.display = "none";
-    content.style.display = "block";
-    contentHeading.insertAdjacentHTML("beforeend", " " + usernameEnter.value + "!");
-    logoutButton.style.display = "block";
+    loginContainer.style.display = "block";
+    content.style.display = "none";
+    logoutButton.style.display = "none";
 
 };
