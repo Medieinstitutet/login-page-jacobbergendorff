@@ -54,6 +54,7 @@ function login() {
     contentHeading.insertAdjacentHTML("beforeend", " " + usernameEnter.value + "!");
     logoutButton.style.display = "block";
     content.style.display = "block";
+    
     localStorage.setItem("loginStatus", true);
 };
 
@@ -61,13 +62,11 @@ logoutButton.addEventListener("click", executeLogout);
 
 function executeLogout() {
 
-
     localStorage.setItem("loginStatus", false);
 
     loginContainer.style.display = "block";
     content.style.display = "none";
     logoutButton.style.display = "none";
-
 };
 
 
