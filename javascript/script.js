@@ -27,36 +27,37 @@ loginButton.addEventListener("click", executeLogin);
 function executeLogin() {
     for (var i = 0; i < userList.length; i++) {
         if (usernameEnter.value === userList[i].username && passwordEnter.value === userList[i].password) {
-            localStorage.setItem("Username", usernameEnter.value");
-            localStorage.setItem("Password", passwordEnter.value");
 
+            localStorage.setItem("Username", usernameEnter.value);
+            localStorage.setItem("Password", passwordEnter.value);
 
-
-            localStorage.setItem("All users", JSON.stringify(userList));
-            
-
-
-
-            
             loginContainer.style.display = "none";
             content.style.display = "block";
             contentHeading.insertAdjacentHTML("beforeend", " " + usernameEnter.value + "!");
             logoutButton.style.display = "block";
-            alert("Welcome to Global Internet Solutions" + usernameEnter.value + "!")
+
+            alert("Welcome to Global Internet Solutions " + usernameEnter.value + "!");
+
+            return true;
+
         } else {
+
             alert("Login failed! Try again " + usernameEnter.value + "!");
+
+            return false;
 }}};
     
-
-localStorage.setItem("username", usernameEnter.value);
-localStorage.setItem("password", passwordEnter.value);
-console.log(localStorage.getItem("username"));
-console.log(localStorage.getItem("password"));
-
 logoutButton.addEventListener("click", executeLogout);
 
 function executeLogout() {
+
+    localStorage.clearItem("Username", usernameEnter.value);
+    localStorage.clearItem("Password", passwordEnter.value);
+    
     loginContainer.style.display = "block";
     content.style.display = "none";
     logoutButton.style.display = "none";
 };
+
+
+
