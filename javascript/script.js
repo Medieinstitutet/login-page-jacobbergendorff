@@ -27,6 +27,17 @@ loginButton.addEventListener("click", executeLogin);
 function executeLogin() {
     for (var i = 0; i < userList.length; i++) {
         if (usernameEnter.value === userList[i].username && passwordEnter.value === userList[i].password) {
+            localStorage.setItem("Username", usernameEnter.value");
+            localStorage.setItem("Password", passwordEnter.value");
+
+
+
+            localStorage.setItem("All users", JSON.stringify(userList));
+            
+
+
+
+            
             loginContainer.style.display = "none";
             content.style.display = "block";
             contentHeading.insertAdjacentHTML("beforeend", " " + usernameEnter.value + "!");
