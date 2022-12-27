@@ -24,8 +24,15 @@ const userList = [
 const localStorageUsername = localStorage.getItem("Username");
 const localStoragePassword = localStorage.getIten("Password");
 
-
-
+if (localStorageUsername && localStoragePassword) {
+    for (const user of userList) {
+        if (user.username === localStorageUsername && user.password = localStoragePassword) {
+            console.log(`Username: ${localStorageUsername}, Password: ${localStoragePassword}`);
+            isLoggedIn = true;
+            break;
+        }
+    }
+};
 
 // Login function 
 
