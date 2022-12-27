@@ -1,3 +1,13 @@
+// Array containing usernames
+var userList = [
+    {username: "janne", password: "test"},
+    {username: "janne1", password: "test1"},
+    {username: "janne2", password: "test2"},
+    {username: "janne3", password: "test3"},
+    {username: "janne4", password: "test4"},
+    {username: "janne5", password: "test5"}
+];
+
 // Definitions of items relating to the login and registration forms
 const loginContainer = document.getElementById('login-container');
 const content = document.getElementById('content');
@@ -10,17 +20,22 @@ const passwordEnter = document.getElementById('password-enter');
 const loginButton = document.getElementById('login-button');
 const logoutButton = document.getElementById('logout-button');
 
+
+// Function that executes login 
 loginButton.addEventListener("click", executeLogin);
 
 function executeLogin() {
-    if (usernameEnter.value == "janne" && passwordEnter.value == "test") {
-        loginContainer.style.display = "none";
-        content.style.display = "block";
-        contentHeading.insertAdjacentHTML("beforeend", " " + usernameEnter.value + "!");
-        logoutButton.style.display = "block";
-    } else {
-        alert("Login failed");
-    }};
+    for (var i = 0; i < userList.length; i++) {
+        if (usernameEnter.value === userList[i].username && passwordEnter.value === userList[i].password) {
+            loginContainer.style.display = "none";
+            content.style.display = "block";
+            contentHeading.insertAdjacentHTML("beforeend", " " + usernameEnter.value + "!");
+            logoutButton.style.display = "block";
+            alert("Welcome to Global Internet Solutions" + usernameEnter.value + "!")
+        } else {
+            alert("Login failed! Try again " + usernameEnter.value + "!");
+}}};
+    
 
 localStorage.setItem("username", usernameEnter.value);
 localStorage.setItem("password", passwordEnter.value);
@@ -34,7 +49,3 @@ function executeLogout() {
     content.style.display = "none";
     logoutButton.style.display = "none";
 };
-
-
-
-
