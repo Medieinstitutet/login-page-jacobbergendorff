@@ -20,18 +20,9 @@ const userList = [
     {id: 6, username: 'janne5', password: 'test5'},
 ];
 
-// Specifications for localStorage - controls if the user is logged in
-const localStorageUsername = localStorage.getItem("Username");
-const localStoragePassword = localStorage.getIten("Password");
-
-if (localStorageUsername && localStoragePassword) {
-    for (const user of userList) {
-        if (user.username === localStorageUsername && user.password = localStoragePassword) {
-            console.log(`Username: ${localStorageUsername}, Password: ${localStoragePassword}`);
-            isLoggedIn = true;
-            break;
-        }
-    }
+const loginStatus = localStorage.getItem("loginStatus");
+if (loginStatus === "true") {
+    login();
 };
 
 // Login function 
@@ -45,8 +36,6 @@ function validateLogin() {
     for (const user of userList) {
 
         if (user.username === username && user.password === password) {
-            localStorage.setItem("Username", username);
-            localStorage.setItem("Password", password);
 
             console.log(`Username: ${username}, Password: ${password}`);
 
@@ -65,17 +54,45 @@ function login() {
     contentHeading.insertAdjacentHTML("beforeend", " " + usernameEnter.value + "!");
     logoutButton.style.display = "block";
     content.style.display = "block";
+    localStorage.setItem("loginStatus", true);
 };
 
 logoutButton.addEventListener("click", executeLogout);
 
 function executeLogout() {
 
-    localStorage.removeItem("Username", usernameEnter.value);
-    localStorage.removeItem("Password", passwordEnter.value);
+
+    localStorage.setItem("loginStatus", false);
 
     loginContainer.style.display = "block";
     content.style.display = "none";
     logoutButton.style.display = "none";
 
 };
+
+
+
+
+
+// if (localStorageUsername && localStoragePassword) {
+    // for (const user of userList) {
+      //   if (user.username === localStorageUsername && user.password === localStoragePassword) {
+       //     console.log(`Username: ${localStorageUsername}, Password: ${localStoragePassword}`);
+       //     isLoggedIn = true;
+       //     break;
+     //   }
+  //  }
+// };
+
+// Specifications for localStorage - controls if the user is logged in
+//const localStorageUsername = localStorage.getItem("Username");
+// const localStoragePassword = localStorage.getIten("Password");
+
+
+
+
+    //localStorage.removeItem("Username", usernameEnter.value);
+    //localStorage.removeItem("Password", passwordEnter.value);
+
+                //localStorage.setItem("Username", username);
+            //localStorage.setItem("Password", password);
